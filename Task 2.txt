@@ -1,0 +1,7 @@
+def average(array):
+    
+    heights = set(array)
+    distinct_average = sum(heights) / len(heights)
+    return distinct_average
+
+if __name__ == '__main__':

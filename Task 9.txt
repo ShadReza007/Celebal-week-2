@@ -1,0 +1,18 @@
+from collections import deque
+n = int(input())
+S = set(map(int, input().split()))
+no_of_commands = input()
+global_vars = {"S": S}
+for i in range(int(no_of_commands)):
+    kargs= input()
+    try  :
+        fun,val = kargs.split()
+        inp = 'S.'+fun+'('+str(val)+')'
+        result = eval(inp,global_vars)
+    except KeyError:
+        pass
+    except Exception as e :
+        fun = kargs
+        inp = 'S.'+fun+'()'
+        result = eval(inp,global_vars)
+print(sum(S)) 

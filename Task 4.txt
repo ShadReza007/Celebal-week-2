@@ -1,0 +1,23 @@
+def print_rangoli(size):
+ 
+    alphabets="0abcdefghijklmnopqrstuvwxyz"
+    letter=alphabets[size]
+    lenght=size+size-1
+    breadth=((size+size-1)*2)-1
+
+    print(letter.center(breadth,"-"))
+
+    for i in range(int((lenght/2))):
+        letter=f"{letter}-{alphabets[size-1-i]}"
+        style="-"+letter[0:len(letter)-2][::-1]
+        print((letter+style).center(breadth,"-"))
+
+    if  size-1>0:
+        styling=str(letter+style)
+        for i in range(int((lenght/2))):
+            styling=styling.replace(f"{alphabets[i+2]}-{alphabets[i+1]}-","").center(breadth,"-")
+            print(styling)
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
